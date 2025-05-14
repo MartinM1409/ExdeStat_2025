@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useAuth } from "@/lib/auth";
+import { useAuth } from "../lib/auth.tsx";
 import { useToast } from "@/hooks/use-toast";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
