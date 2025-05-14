@@ -5,6 +5,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import {
   Select,
   SelectContent,
@@ -104,6 +105,8 @@ export default function PdfForm({
       // Create form data for file upload
       const formData = new FormData();
       formData.append("departmentId", data.departmentId.toString());
+      formData.append("name", data.name);
+      formData.append("description", data.description || "");
       formData.append("file", data.file);
 
       const response = await fetch("/api/pdfs", {
@@ -161,7 +164,6 @@ export default function PdfForm({
                         <DepartmentIcon
                           name={department.icon as DepartmentIconName}
                           className="w-4 h-4 mr-2"
-                          style={{ color: department.color }}
                         />
                         {department.name}
                       </div>
@@ -171,6 +173,40 @@ export default function PdfForm({
               </Select>
               <FormDescription>
                 The department this PDF belongs to
+              </FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="name"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Nume document</FormLabel>
+              <FormControl>
+                <Input placeholder="Ex: Teste Cardiologie 2025" {...field} disabled={isLoading} />
+              </FormControl>
+              <FormDescription>
+                Numele documentului așa cum va apărea pentru utilizatori
+              </FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="description"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Descriere (Opțional)</FormLabel>
+              <FormControl>
+                <Input placeholder="Ex: Întrebări de la examenele anterioare" {...field} disabled={isLoading} />
+              </FormControl>
+              <FormDescription>
+                O scurtă descriere a conținutului documentului
               </FormDescription>
               <FormMessage />
             </FormItem>

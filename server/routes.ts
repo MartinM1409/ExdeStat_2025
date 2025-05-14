@@ -534,10 +534,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
       
       const file = Object.values(req.files)[0];
-      const { departmentId } = req.body;
+      const { departmentId, name, description } = req.body;
       
       if (!departmentId) {
         return res.status(400).json({ message: "Department ID is required" });
+      }
+      
+      if (!name) {
+        return res.status(400).json({ message: "Document name is required" });
       }
       
       // Verify department exists
@@ -547,6 +551,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
       
       const pdfData = {
+        name: name,
+        description: description || null,
         filename: file.filename,
         originalFilename: file.originalFilename,
         size: file.size,

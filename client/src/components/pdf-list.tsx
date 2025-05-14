@@ -71,8 +71,11 @@ export default function PdfList({ departmentSlug }: PdfListProps) {
               {pdfs.map((pdf) => (
                 <li key={pdf.id} className="py-4 flex justify-between items-center">
                   <div>
-                    <h3 className="font-medium">{pdf.originalFilename}</h3>
-                    <p className="text-sm text-gray-500">{formatFileSize(pdf.size)}</p>
+                    <h3 className="font-medium">{pdf.name || pdf.originalFilename}</h3>
+                    {pdf.description && (
+                      <p className="text-sm text-gray-600 mt-1">{pdf.description}</p>
+                    )}
+                    <p className="text-xs text-gray-500 mt-1">{formatFileSize(pdf.size)}</p>
                   </div>
                   <Button 
                     variant="ghost" 

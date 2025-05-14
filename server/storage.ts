@@ -141,6 +141,8 @@ export class MemStorage implements IStorage {
       // Add sample PDFs
       const pdfs = [
         { 
+          name: "Ghid de practică clinică în cardiologie 2025",
+          description: "Ghidul oficial pentru practica clinică cu cele mai recente recomandări",
           filename: "cardiologie_guide_2025.pdf", 
           originalFilename: "Ghid de practică clinică în cardiologie 2025.pdf", 
           size: 15000000, 
@@ -148,6 +150,8 @@ export class MemStorage implements IStorage {
           uploadedById: 1 
         },
         { 
+          name: "Algoritmi pentru interpretarea EKG",
+          description: "Colecție de algoritmi diagnostici pentru interpretarea electrocardiogramelor",
           filename: "ekg_algorithms.pdf", 
           originalFilename: "Algoritmi pentru EKG interpretare.pdf", 
           size: 8000000, 
@@ -298,6 +302,8 @@ export class MemStorage implements IStorage {
     const id = this.pdfId++;
     const pdf: Pdf = { 
       ...pdfData, 
+      name: pdfData.name || pdfData.originalFilename, // Use name if provided, otherwise use original filename
+      description: pdfData.description || null,
       id, 
       uploadedAt: new Date() 
     };
