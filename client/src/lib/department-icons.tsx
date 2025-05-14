@@ -3,7 +3,6 @@ import {
   Baby, 
   Syringe, 
   Scissors, 
-  Slice, 
   Stethoscope, 
   Activity, 
   FileText, 
@@ -21,7 +20,7 @@ export type DepartmentIconName =
   | "Baby" 
   | "Syringe" 
   | "Scissors" 
-  | "Slice" 
+  | "Scalpel" 
   | "Stethoscope" 
   | "Activity" 
   | "FileText" 
@@ -32,7 +31,9 @@ export type DepartmentIconName =
   | "Bone"
   | "Microscope"
   | "Stomach"
-  | "Kidney";
+  | "Kidney"
+  | "Lungs"
+  | "BabyBottle";
 
 // Map for matching icon names to their components
 const iconMap: Record<DepartmentIconName, React.ComponentType<any>> = {
@@ -40,7 +41,6 @@ const iconMap: Record<DepartmentIconName, React.ComponentType<any>> = {
   Baby,
   Syringe,
   Scissors,
-  Slice,
   Stethoscope,
   Activity,
   FileText,
@@ -50,6 +50,33 @@ const iconMap: Record<DepartmentIconName, React.ComponentType<any>> = {
   Pill,
   Bone,
   Microscope,
+  // Custom icons for medical elements not present in Lucide
+  Scalpel: () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M14 17l-5 5"/>
+      <path d="M17.5 13.5L19 12l-7-7L3 14l1.5 1.5"/>
+      <path d="M10 10l3.5 3.5"/>
+      <path d="M13.5 13.5L19 19"/>
+    </svg>
+  ),
+  BabyBottle: () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M10 2v2.5"/>
+      <path d="M14 2v2.5"/>
+      <path d="M12 17v-6.5"/>
+      <path d="M10 10.5v-1"/>
+      <path d="M14 10.5v-1"/>
+      <path d="M7.5 8h9a2 2 0 0 1 2 2v10.5a2 2 0 0 1-2 2h-9a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2z"/>
+      <path d="M12 4.5a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-1a2 2 0 0 1 2-2z"/>
+    </svg>
+  ),
+  Lungs: () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M6.081 20c0-2.5 2-4 4-5.5-1.5 0-2-1-2-2.5 0-3 2.5-3 2.5-9.5 0 0-4 1-4 6 0 2 1 3.5 1 5 0 1-1 1.5-1 3.5 0 2 1.5 3 3.5 3z"/>
+      <path d="M17.92 20c0-2.5-2-4-4-5.5 1.5 0 2-1 2-2.5 0-3-2.5-3-2.5-9.5 0 0 4 1 4 6 0 2-1 3.5-1 5 0 1 1 1.5 1 3.5 0 2-1.5 3-3.5 3z"/>
+      <path d="M12 10v11"/>
+    </svg>
+  ),
   // These are custom icons because Lucide doesn't have specific icons for kidneys and stomach
   Stomach: () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
