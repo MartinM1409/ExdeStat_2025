@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 84% 4.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  
+  /* Primary: Blue */
+  --primary: 221 83% 53%;
+  --primary-foreground: 210 40% 98%;
+  
+  /* Secondary: Yellow */
+  --secondary: 47 96% 53%;
+  --secondary-foreground: 222.2 84% 4.9%;
+  
+  --accent: 210 40% 96.1%;
+  --accent-foreground: 222.2 84% 4.9%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  --ring: 221 83% 53%;
+  
+  --radius: 0.5rem;
+
+  /* Department colors */
+  --color-cardiology: 0 84% 60%;
+  --color-pediatric-surgery: 25 95% 53%;
+  --color-general-surgery: 35 92% 53%;
+  --color-surgery-1: 87 59% 44%;
+  --color-surgery-2: 160 84% 39%;
+  --color-gastroenterology: 187 100% 42%;
+  --color-nephrology: 217 91% 60%;
+  --color-obstetrics: 263 70% 50%;
+  --color-pediatrics: 291 70% 58%;
+  --color-pneumology: 330 86% 65%;
+  --color-rheumatology: 346 84% 61%;
+  --color-all-tests: 215 25% 47%;
+}
+
+.dark {
+  --background: 222.2 84% 4.9%;
+  --foreground: 210 40% 98%;
+  --muted: 217.2 32.6% 17.5%;
+  --muted-foreground: 215 20.2% 65.1%;
+  --popover: 222.2 84% 4.9%;
+  --popover-foreground: 210 40% 98%;
+  --card: 222.2 84% 4.9%;
+  --card-foreground: 210 40% 98%;
+  --border: 217.2 32.6% 17.5%;
+  --input: 217.2 32.6% 17.5%;
+  --primary: 217.2 91.2% 59.8%;
+  --primary-foreground: 222.2 47.4% 11.2%;
+  --secondary: 47 96% 53%;
+  --secondary-foreground: 222.2 47.4% 11.2%;
+  --accent: 217.2 32.6% 17.5%;
+  --accent-foreground: 210 40% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+  --ring: 217.2 91.2% 59.8%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+  }
+}
+
+/* Custom styles for department cards */
+.department-card-cardiology {
+  background-color: hsl(var(--color-cardiology));
+}
+
+.department-card-pediatric-surgery {
+  background-color: hsl(var(--color-pediatric-surgery));
+}
+
+.department-card-general-surgery {
+  background-color: hsl(var(--color-general-surgery));
+}
+
+.department-card-surgery-1 {
+  background-color: hsl(var(--color-surgery-1));
+}
+
+.department-card-surgery-2 {
+  background-color: hsl(var(--color-surgery-2));
+}
+
+.department-card-gastroenterology {
+  background-color: hsl(var(--color-gastroenterology));
+}
+
+.department-card-nephrology {
+  background-color: hsl(var(--color-nephrology));
+}
+
+.department-card-obstetrics-gynecology {
+  background-color: hsl(var(--color-obstetrics));
+}
+
+.department-card-pediatrics {
+  background-color: hsl(var(--color-pediatrics));
+}
+
+.department-card-pneumology {
+  background-color: hsl(var(--color-pneumology));
+}
+
+.department-card-rheumatology {
+  background-color: hsl(var(--color-rheumatology));
+}
+
+.department-card-all-tests {
+  background-color: hsl(var(--color-all-tests));
+}
