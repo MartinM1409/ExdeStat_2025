@@ -31,13 +31,13 @@ const formSchema = z.object({
   name: z.string().min(1, "Numele documentului este obligatoriu"),
   description: z.string().optional(),
   file: z.any()
-    .refine((file) => file instanceof File, { 
+    .refine((file) => file && typeof file === 'object' && 'type' in file, { 
       message: "Please select a PDF file" 
     })
-    .refine((file) => file.type === "application/pdf", {
+    .refine((file) => file && file.type === "application/pdf", {
       message: "File must be a PDF",
     })
-    .refine((file) => file.size <= 20 * 1024 * 1024, {
+    .refine((file) => file && file.size <= 20 * 1024 * 1024, {
       message: "File size must be less than 20MB",
     })
 });
