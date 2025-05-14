@@ -20,7 +20,7 @@ export default function ResourceCard({ resource, department }: ResourceCardProps
       className="block overflow-hidden hover:shadow-lg transition-shadow cursor-pointer"
       onClick={handleClick}
     >
-      <CardHeader className={`p-4 text-white ${cardClass}`}>
+      <CardHeader className={`p-4 text-blue-600 ${cardClass}`}>
         <h3 className="text-lg font-semibold truncate">{resource.title}</h3>
       </CardHeader>
       <CardContent className="p-4">
