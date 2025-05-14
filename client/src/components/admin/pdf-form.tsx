@@ -27,15 +27,18 @@ import { File, UploadCloud, X } from "lucide-react";
 // Define schema for form validation
 const formSchema = z.object({
   departmentId: z.number().min(1, "Please select a department"),
-  file: z.instanceof(File, { message: "Please select a PDF file" }).refine(
-    (file) => file.type === "application/pdf", {
+  name: z.string().min(1, "Numele documentului este obligatoriu"),
+  description: z.string().optional(),
+  file: z.any()
+    .refine((file) => file instanceof File, { 
+      message: "Please select a PDF file" 
+    })
+    .refine((file) => file.type === "application/pdf", {
       message: "File must be a PDF",
-    }
-  ).refine(
-    (file) => file.size <= 20 * 1024 * 1024, {
+    })
+    .refine((file) => file.size <= 20 * 1024 * 1024, {
       message: "File size must be less than 20MB",
-    }
-  ),
+    })
 });
 
 interface PdfFormProps {
@@ -59,6 +62,8 @@ export default function PdfForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
       departmentId: departments[0]?.id || 0,
+      name: "",
+      description: "",
     },
   });
 

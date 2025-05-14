@@ -62,6 +62,8 @@ export type Resource = typeof resources.$inferSelect;
 // PDF resources table
 export const pdfs = pgTable("pdfs", {
   id: serial("id").primaryKey(),
+  name: text("name").notNull().default(""), // New field for PDF name
+  description: text("description").default(""), // New field for PDF description
   filename: text("filename").notNull(),
   originalFilename: text("original_filename").notNull(),
   size: integer("size").notNull(), // size in bytes

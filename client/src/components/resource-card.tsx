@@ -25,7 +25,7 @@ export default function ResourceCard({ resource, department }: ResourceCardProps
       </CardHeader>
       <CardContent className="p-4">
         <p className="text-gray-600 text-sm">
-          {`Teste și materiale pentru secțiunea ${department.name}`}
+          {`Materiale pentru secțiunea ${department.name}`}
         </p>
       </CardContent>
     </Card>
